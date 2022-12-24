@@ -68,6 +68,7 @@ nav {
     align-items: center;
     justify-content: space-between;
     color: #fff;
+    margin-bottom: 25;
 }
 
 nav ul {
@@ -105,10 +106,21 @@ footer ul {
     margin: 0;
     padding: 0;
     display: flex;
+    
 }
 
 footer li {
     margin-right: 10px;
+}
+
+footer i{
+    border: 2px solid #fff;
+    border-radius: 100px;
+    padding: 5px;
+}
+
+footer i:hover{
+    background-color: #fff;
 }
 
 footer a {
@@ -120,4 +132,8 @@ footer img {
     width: 25px;
     height: 25px;
     margin-right: 10px;
+}
+
+.copyright{
+    margin-bottom: 25;
 }

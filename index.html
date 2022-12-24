@@ -2,9 +2,14 @@
     <head>
         <title>Tabel Siswa</title>
         <script src="script.js"></script>   
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="styles/style.css">
+        <script src="https://kit.fontawesome.com/24f3a063c1.js" crossorigin="anonymous"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <meta name="description" content="Aplikasi mengatur data siswa.">
     </head>
     <body>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
         <nav>
             <ul>
               <li><a href="/home">Home</a></li>
@@ -17,6 +22,7 @@
             <tr class="tbl-header">
                 <th><b>Nama</b></th>
                 <th><b>Tanggal Lahir</b></th>
+                <th><b>Jenis Kelamin</b></th>
                 <th><b>Kelas</b></th>
                 <th><b>Nilai</b></th>
                 <th><b>Status</b></th>
@@ -25,26 +31,78 @@
             <tr>
                 <td>Sari</td>
                 <td>1 Januari 2000</td>
+                <td>Perempuan</td>
                 <td>XI RPL 1</td>
                 <td>80</td>
                 <td>Aktif</td>
                 <td>
-                    <button class="custom-btn">Edit</button>
+                    <button class="custom-btn" data-bs-toggle="modal" data-bs-target="#editSiswa">Edit</button>
                     <button class="custom-btn">Hapus</button>
                 </td>
             </tr>
             <tr>
                 <td>Budi</td>
                 <td>2 Februari 2000</td>
+                <td>Laki-Laki</td>
                 <td>XI RPL 2</td>
                 <td>75</td>
                 <td>Aktif</td>
                 <td>
-                    <button class="custom-btn">Edit</button>
+                    <button class="custom-btn" data-bs-toggle="modal" data-bs-target="#editSiswa">Edit</button>
                     <button class="custom-btn">Hapus</button>
                 </td>
             </tr>
         </table>
+
+        <!-- Modal -->
+        <div class="modal fade" id="editSiswa" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="editSiswaLabel">Edit Siswa</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group mb-2">
+                                <input class="form-control" type="text" placeholder="Nama"> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group mb-2">
+                                <select class="form-select" aria-label="Default select example">
+                                    <option selected>Jenis Kelamin</option>
+                                    <option value="1">Laki-Laki</option>
+                                    <option value="2">Perempuan</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group mb-2">
+                                <input class="form-control" type="text" placeholder="Kelas"> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group mb-2">
+                                <input class="form-control" type="text" placeholder="Nilai"> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                <button type="button" class="btn btn-primary">Simpan</button>
+                </div>
+            </div>
+            </div>
+        </div>
 
         <!-- Form edit siswa -->
         <div id="edit-student-modal" class="modal">
@@ -87,17 +145,21 @@
         </div>
     </body>
     <footer>
-        <p>Copyright &copy; 2022. All rights reserved.</p>
-        <ul>
-          <li><a href="#">Tentang Kami</a></li>
-          <li><a href="#">Kontak</a></li>
-          <li><a href="#">Kebijakan Privasi</a></li>
-        </ul>
-        <p>Follow kami di:</p>
-        <ul>
-            <li><a href="#"><img src="https://cdn.icon-icons.com/icons2/1378/PNG/512/3721679-twitter_bird_logo_social_media_icon_138205.png" alt="Twitter"></a></li>
-            <li><a href="#"><img src="https://cdn.icon-icons.com/icons2/1378/PNG/512/3721681-facebook_logo_social_media_icon_138207.png" alt="Facebook"></a></li>
-            <li><a href="#"><img src="https://cdn.icon-icons.com/icons2/1378/PNG/512/3721680-instagram_logo_social_media_icon_138206.png" alt="Instagram"></a></li>
-        </ul>
+        <div class="copyright">
+            <p>Copyright &copy; Live Siswa, 2022. All rights reserved.</p>
+            <ul>
+              <li><a href="#">Tentang Kami</a></li>
+              <li><a href="#">Kontak</a></li>
+              <li><a href="#">Kebijakan Privasi</a></li>
+            </ul>
+        </div>
+        <div class="social-media text-center mb-">
+            <p class="mb-2">Social Media</p>
+            <ul class="d-flex justify-content-center">
+                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+            </ul>
+        </div>
       </footer>
 </html>
