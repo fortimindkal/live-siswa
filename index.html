@@ -1,12 +1,12 @@
 <html>
     <head>
         <title>Tabel Siswa</title>
-        <script src="script.js"></script>   
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="styles/style.css">
         <script src="https://kit.fontawesome.com/24f3a063c1.js" crossorigin="anonymous"></script>
-        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'>
         <meta name="description" content="Aplikasi mengatur data siswa.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
@@ -18,6 +18,18 @@
               <li><a href="/contact">Contact</a></li>
             </ul>
         </nav>
+
+        <div class="container">
+            <div class="row height d-flex justify-content-center align-items-center">
+              <div class="col-md-8">
+                <div class="search">
+                  <i class="fa fa-search"></i>
+                  <input type="text" class="rounded-pill form-control" placeholder="Find Students.." id="search-input" onkeyup="searchStudents()">
+                </div>
+              </div>
+            </div>
+        </div>
+
         <table id="student-table">
             <tr class="tbl-header">
                 <th><b>Nama</b></th>
@@ -28,7 +40,7 @@
                 <th><b>Status</b></th>
                 <th><b>Aksi</b></th>
             </tr>
-            <tr>
+            <tr class="siswa-row">
                 <td>Sari</td>
                 <td>1 Januari 2000</td>
                 <td>Perempuan</td>
@@ -37,10 +49,10 @@
                 <td>Aktif</td>
                 <td>
                     <button class="custom-btn" data-bs-toggle="modal" data-bs-target="#editSiswa">Edit</button>
-                    <button class="custom-btn">Hapus</button>
+                    <button class="delete-siswa custom-btn">Hapus</button>
                 </td>
             </tr>
-            <tr>
+            <tr class="siswa-row">
                 <td>Budi</td>
                 <td>2 Februari 2000</td>
                 <td>Laki-Laki</td>
@@ -49,7 +61,7 @@
                 <td>Aktif</td>
                 <td>
                     <button class="custom-btn" data-bs-toggle="modal" data-bs-target="#editSiswa">Edit</button>
-                    <button class="custom-btn">Hapus</button>
+                    <button class="delete-siswa2 custom-btn">Hapus</button>
                 </td>
             </tr>
         </table>
@@ -98,7 +110,7 @@
                 </div>
                 <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                <button type="button" class="btn btn-primary">Simpan</button>
+                <button type="button" class="save-edit">Simpan</button>
                 </div>
             </div>
             </div>
@@ -162,4 +174,6 @@
             </ul>
         </div>
       </footer>
+      <script src="script.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js"></script>
 </html>
