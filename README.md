@@ -8,3 +8,12 @@ The user can also edit existing student information by selecting the "Edit" opti
 To delete a student from the CSV file, the user can select the "Delete" option and select the student they want to delete from the list. The user will then be prompted to confirm the deletion before the student is removed from the CSV file.
 
 Live Siswa is a useful tool for teachers and school administrators to manage student information and keep track of their progress. It allows for easy and convenient access to student data, making it easier to keep track of student performance and make informed decisions about their education.
+
+﻿# How-to-Use
+To use the Live Siswa application:
+
+Clone the project using any terminal by using the following command: git clone [project URL]
+Open the index.html file provided in the project directory.
+Use the "Add Student" option to add a new student and their information will be saved to the local storage.
+If you want to save the student data to a CSV file, click the "Save to CSV" button. This will create a CSV file in the project directory with all of the student information.
+Note: Make sure that you have permission to write to the project directory if you want to save the CSV file.
