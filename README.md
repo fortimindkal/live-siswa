@@ -9,7 +9,7 @@ To delete a student from the CSV file, the user can select the "Delete" option a
 
 Live Siswa is a useful tool for teachers and school administrators to manage student information and keep track of their progress. It allows for easy and convenient access to student data, making it easier to keep track of student performance and make informed decisions about their education.
 
-﻿# How-to-Use
+﻿# How-to-use
 To use the Live Siswa application:
 
 Clone the project using any terminal by using the following command: git clone [project URL]
