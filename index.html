@@ -38,9 +38,9 @@
                 <th><b>Kelas</b></th>
                 <th><b>Nilai</b></th>
                 <th><b>Status</b></th>
-                <th><b>Aksi</b></th>
+                <th id="action"><b>Aksi</b></th>
             </tr>
-            <tr class="siswa-row">
+            <!-- <tr class="siswa-row">
                 <td>Sari</td>
                 <td>1 Januari 2000</td>
                 <td>Perempuan</td>
@@ -48,23 +48,25 @@
                 <td>80</td>
                 <td>Aktif</td>
                 <td>
-                    <button class="custom-btn" data-bs-toggle="modal" data-bs-target="#editSiswa">Edit</button>
-                    <button class="custom-btn" onclick="deleteStudent(this)">Hapus</button>
+                    <button class="edit-siswa custom-btn" data-bs-toggle="modal" data-bs-target="#editSiswa" onclick="showEditForm(this)" id="action-btn">Edit</button>
+                    <button class="delete-siswa custom-btn" onclick="deleteStudent(this)" id="action-btn">Hapus</button>
                 </td>
             </tr>
             <tr class="siswa-row">
                 <td>Budi</td>
                 <td>2 Februari 2000</td>
-                <td>Laki-Laki</td>
+                <td>Laki-laki</td>
                 <td>XI RPL 2</td>
                 <td>75</td>
                 <td>Aktif</td>
                 <td>
-                    <button class="custom-btn" data-bs-toggle="modal" data-bs-target="#editSiswa">Edit</button>
-                    <button class="custom-btn" onclick="deleteStudent(this)">Hapus</button>
+                    <button class="edit-siswa custom-btn" data-bs-toggle="modal" data-bs-target="#editSiswa" onclick="showEditForm(this)">Edit</button>
+                    <button class="delete-siswa custom-btn" onclick="deleteStudent(this)">Hapus</button>
                 </td>
-            </tr>
+            </tr> -->
         </table>
+
+        <button class="edit-siswa custom-btn" data-bs-toggle="modal" data-bs-target="#addSiswa">Add Siswa</button>
 
         <!-- Modal -->
         <div class="modal fade" id="editSiswa" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -77,40 +79,130 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="form-group mb-2">
-                                <input class="form-control" type="text" placeholder="Nama"> 
+                            <div class="form-floating mb-2">
+                                <input class="form-control" type="text" placeholder="Nama" id="edit-nama">
+                                <label for="floatingInputValue">Nama</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-floating mb-2">
+                                <input class="form-control" type="text" placeholder="Tanggal Lahir" id="edit-tgl-lahir">
+                                <label for="floatingInputValue">Tanggal Lahir</label>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-12">
-                            <div class="form-group mb-2">
-                                <select class="form-select" aria-label="Default select example">
+                            <div class="form-floating mb-2">
+                                <select class="form-select" aria-label="Default select example"  id="edit-jk">
                                     <option selected>Jenis Kelamin</option>
-                                    <option value="1">Laki-Laki</option>
-                                    <option value="2">Perempuan</option>
+                                    <option value="Laki-laki">Laki-Laki</option>
+                                    <option value="Perempuan">Perempuan</option>
                                 </select>
+                                <label for="floatingInputValue">Jenis Kelamin</label>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-12">
-                            <div class="form-group mb-2">
-                                <input class="form-control" type="text" placeholder="Kelas"> 
+                            <div class="form-floating mb-2">
+                                <input class="form-control" type="text" placeholder="Kelas" id="edit-kelas"> 
+                                <label for="floatingInputValue">Kelas</label>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-12">
-                            <div class="form-group mb-2">
-                                <input class="form-control" type="text" placeholder="Nilai"> 
+                            <div class="form-floating mb-2">
+                                <input class="form-control" type="text" placeholder="Nilai" id="edit-nilai">
+                                <label for="floatingInputValue">Nilai</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-floating mb-2">
+                                <input class="form-control" type="text" placeholder="Nilai" id="edit-status">
+                                <label for="floatingInputValue">Status</label>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                <button type="button" class="save-edit">Simpan</button>
+                <button type="button" class="btn btn-primary save-edit" onclick="saveEdit(this)" data-bs-dismiss="modal">Simpan</button>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="addSiswa" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="addSiswaLabel">Add Siswa</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-floating mb-2">
+                                <input class="form-control" type="text" placeholder="Nama" id="add-nama">
+                                <label for="floatingInputValue">Nama</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-floating mb-2">
+                                <input class="form-control" type="text" placeholder="Tanggal Lahir" id="add-tgl-lahir">
+                                <label for="floatingInputValue">Tanggal Lahir</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-floating mb-2">
+                                <select class="form-select" aria-label="Default select example"  id="add-jk">
+                                    <option selected>Jenis Kelamin</option>
+                                    <option value="Laki-laki">Laki-Laki</option>
+                                    <option value="Perempuan">Perempuan</option>
+                                </select>
+                                <label for="floatingInputValue">Jenis Kelamin</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-floating mb-2">
+                                <input class="form-control" type="text" placeholder="Kelas" id="add-kelas"> 
+                                <label for="floatingInputValue">Kelas</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-floating mb-2">
+                                <input class="form-control" type="text" placeholder="Nilai" id="add-nilai">
+                                <label for="floatingInputValue">Nilai</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-floating mb-2">
+                                <input class="form-control" type="text" placeholder="Status" id="add-status"> 
+                                <label for="floatingInputValue">Status</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                <button type="button" class="btn btn-primary save-edit" onclick="addStudent()" data-bs-dismiss="modal">Simpan</button>
                 </div>
             </div>
             </div>
