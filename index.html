@@ -1,4 +1,4 @@
-<html>
+<html lang="id">
     <head>
         <title>Live Siswa</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -42,8 +42,9 @@
             </tr>
         </table>
 
-        <button class="edit-siswa custom-btn" data-bs-toggle="modal" data-bs-target="#addSiswa">Add Siswa</button>
+        <button class="custom-btn" data-bs-toggle="modal" data-bs-target="#addSiswa" onclick="resetForm()">Add Siswa</button>
         <button id="save-csv" class="custom-btn" onclick="exportTableToCsv('siswa.csv')">Save to CSV</button>
+
         <!-- Modal -->
         <div class="modal fade" id="editSiswa" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -64,7 +65,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-floating mb-2">
-                                <input class="form-control" type="text" placeholder="Tanggal Lahir" id="edit-tgl-lahir">
+                                <input type="date" class="form-control" id="edit-tgl-lahir">
                                 <label for="floatingInputValue">Tanggal Lahir</label>
                             </div>
                         </div>
@@ -134,7 +135,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-floating mb-2">
-                                <input class="form-control" type="text" placeholder="Tanggal Lahir" id="add-tgl-lahir">
+                                <input type="date" class="form-control" id="add-tgl-lahir">
                                 <label for="floatingInputValue">Tanggal Lahir</label>
                             </div>
                         </div>
@@ -225,24 +226,24 @@
         </div>
     </body>
     <footer>
-        <div class="copyright">
+        <hr>
+        <div class="copyright text-center">
             <p>Copyright &copy; Live Siswa, 2022. All rights reserved.</p>
-            <ul>
+            <ul class="justify-content-center mt-2">
               <li><a href="#">Tentang Kami</a></li>
               <li><a href="#">Kontak</a></li>
               <li><a href="#">Kebijakan Privasi</a></li>
             </ul>
         </div>
-        <div class="social-media text-center mb-">
+        <div class="social-media text-center">
             <p class="mb-2">Social Media</p>
             <ul class="d-flex justify-content-center">
-                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fab fa-facebook"></i></a></li>
-                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="#" aria-label="Connect to Twitter"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#" aria-label="Connect to Facebook"><i class="fab fa-facebook"></i></a></li>
+                <li><a href="#" aria-label="Connect to Instagram"><i class="fab fa-instagram"></i></a></li>
             </ul>
         </div>
       </footer>
       <script src="script.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
 </html>

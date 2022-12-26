@@ -12,7 +12,7 @@ window.onload = function() {
 function exportToCsv(filename, rows) {
   var processRow = function (row) {
     var finalVal = '';
-    for (var j = 0; j < row.length; j++) {
+    for (var j = 0; j < row.length-1; j++) {
       var innerValue = row[j] === null ? '' : row[j].toString();
       if (row[j] instanceof Date) {
         innerValue = row[j].toLocaleString();
@@ -39,13 +39,19 @@ function exportToCsv(filename, rows) {
     var link = document.createElement("a");
     if (link.download !== undefined) { // feature detection
       // Browsers that support HTML5 download attribute
-      var url = URL.createObjectURL(blob);
+      var url = window.URL.createObjectURL(blob);
       link.setAttribute("href", url);
       link.setAttribute("download", filename);
       link.style.visibility = 'hidden';
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
+    }
+    else
+    {
+      window.URL = window.URL || window.webkitURL;
+      window.URL.revokeObjectURL(blob);
+      FileSaver.saveAs(blob, filename);
     }
   }
 }
@@ -151,6 +157,17 @@ function searchStudents() {
       rows[i].style.display = "none";
     }
   }
+}
+
+function resetForm() {
+  document.getElementById("add-nama").value = "";
+  document.getElementById("add-tgl-lahir").value = "";
+  document.getElementById("add-jk").value = "Jenis Kelamin";
+  document.getElementById("add-kelas").value = "";
+  document.getElementById("add-nilai").value = "";
+  document.getElementById("add-status").value = "";
+
+  console.log("Reseted!");
 }
 
 function addStudent() {
