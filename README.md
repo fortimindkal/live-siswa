@@ -17,3 +17,7 @@ To use the Live Siswa application:
 * Use the "Add Student" option to add a new student and their information will be saved to the local storage.
 * If you want to save the student data to a CSV file, click the "Save to CSV" button. This will create a CSV file in the project directory with all of the student information.
 Note: Make sure that you have permission to write to the project directory if you want to save the CSV file.
+
+## Developer
+Main Developer : Muhammad Haikal Bintang
+Tester : Sultan Rafie Hidayat
